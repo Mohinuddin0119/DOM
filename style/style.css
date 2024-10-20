@@ -7,3 +7,9 @@ li{
 #Places-title{
     color:sienna
 }
+.yellow-bg{
+    background-color: yellowgreen !important;
+}
+.text{
+    text-align: center;
+}
