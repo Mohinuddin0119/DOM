@@ -72,23 +72,79 @@ console.log(dom2[0].innerHTML)
 console.log(dom2[0].innerText)
 // change
 // console.log(dom2[0].innerText = 'I am Mahi')
-*/
-// dom style properties
-const sections = document.querySelectorAll('section');
-// console.log(sections)
-for(const section of sections){
-    // console.log(section)
-    section.style.border = '3px solid steelblue'
-    section.style.marginBottom = '5px'
-    section.style.paddingLeft = '5px'
-    section.style.backgroundColor = 'lightgrey'
-}
-// 
-const placesContainer = document.getElementById('places-container') 
-placesContainer.style.backgroundColor = 'pink'
+
 // add
 const domContainer = document.getElementById('dom-head')
 domContainer.classList.add('yellow-bg')
 domContainer.classList.add('text')
 // remove
 domContainer.classList.remove('text')
+
+// node list , childNode
+const dom = document.getElementById('places-container')
+console.log(dom.childNodes)
+console.log(dom.childNodes)
+console.log(dom.childNodes[1])
+console.log(dom.childNodes[3])
+console.log(dom.firstChild.nextSibling.nextSibling.nextSibling)
+console.log(dom.childNodes[2].previousSibling)
+const dom2 = document.querySelector('#places-container ul')
+console.log(dom2)
+// create Element
+const placesUL = document.querySelector('#places-container ul')
+const li = document.createElement('li')
+console.log(li)
+const new1 = document.createElement('p')
+console.log(new1)
+li.innerText = 'This is Dhaka'
+new1.innerText = 'This is bangladesh'
+placesUL.appendChild(li)
+placesUL.appendChild(new1)
+console.log(placesUL)
+// parentNode
+console.log(placesUL.parentNode)
+console.log(placesUL.parentNode.parentNode)
+console.log(placesUL.parentNode.parentNode.parentNode)
+console.log(placesUL.parentNode.parentNode.parentNode.parentNode)
+console.log(placesUL.parentNode.parentNode.parentNode.parentNode.parentNode)
+*/
+// where to add
+const mainContainer = document.getElementById('main-container')
+// what to be add
+const section = document.createElement('section')
+const h1 = document.createElement('h1')
+h1.innerText = 'This is food list'
+// add
+section.appendChild(h1);
+
+const ul = document.createElement('ul')
+const li = document.createElement('li')
+li.innerText = "Biryani"
+ul.appendChild(li)
+
+const li2 = document.createElement('li')
+li2.innerText = "Borhani"
+ul.appendChild(li2)
+
+const details = document.createElement('details')
+details.innerText = "this is natural"
+li2.appendChild(details)
+
+section.appendChild(ul)
+
+mainContainer.appendChild(section)
+
+
+// set innerHTML directly 
+const section1 = document.createElement('section');
+section1.innerHTML = `
+<h1>This is flower list</h1>
+<ul> 
+    <li>Rose</li>
+    <li>Lily</li>
+    <li>Shapla</li>
+    <li>Kathgolap</li>
+    </ul>
+`
+section1.style.backgroundColor = 'red'
+mainContainer.appendChild(section1)
