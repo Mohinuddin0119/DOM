@@ -1,6 +1,6 @@
+/*
 // Option 1 : directly declare
 // { <button onclick="console.log(64)">Another button</button> }
-
 
 // option 2
 // important:we will  use this
@@ -48,3 +48,20 @@ document.getElementById('make-goldenRod').addEventListener('click',function(){
 function makeOrange(){
     document.body.style.backgroundColor = 'orange'
 }
+*/
+// event handle recap
+document
+  .getElementById("event-listener")
+  .addEventListener("click", function () {
+    const handlerStatue = document.getElementById("handler-status");
+    handlerStatue.innerText = "Text handed by onclick attribute";
+  });
+// update
+document.getElementById("btn-update").addEventListener("click", function () {
+  const inputField = document.getElementById("input-field");
+  const inputText = inputField.value;
+
+  const p = document.getElementById("para");
+  p.innerText = inputText;
+  inputField.value = "";
+});

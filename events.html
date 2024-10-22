@@ -1,31 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Events of dom</title>
-</head>
-<body>
+  </head>
+  <body>
     <!-- option 1 -->
     <h1 onclick="console.log('i am clicked')">events of dom</h1>
     <button onclick="console.log(7)">Click me</button>
     <button onclick="console.log(64)">Another button</button>
-    <button onclick="document.body.style.backgroundColor = 'yellow' ">Make yellow</button>
+    <button onclick="document.body.style.backgroundColor = 'yellow' ">
+      Make yellow
+    </button>
 
     <!-- option 2 -->
-     <button onclick="makeRed()">Make Red</button>
-     <!-- option 3 -->
-      <button id="makeBlue">Make blue</button>
-      <button  id="makeViolet">Make violet</button>
-      <h2 id="h2On">This is heading 2</h2>
-      <!-- option ৪ -->
-       <button id="make-green">Make green</button>
-       <button id="make-tomato">Make tomato</button>
-       <!-- final -->
-        <h3 >We will use this sometimes</h3>
-        <button id="make-goldenRod">Make Golden-Rod</button>
-        <button onclick="makeOrange()">Make Orange</button>
+    <button onclick="makeRed()">Make Red</button>
+    <!-- option 3 -->
+    <button id="makeBlue">Make blue</button>
+    <button id="makeViolet">Make violet</button>
+    <h2 id="h2On">This is heading 2</h2>
+    <!-- option ৪ -->
+    <button id="make-green">Make green</button>
+    <button id="make-tomato">Make tomato</button>
+    <!-- final -->
+    <h3>We will use this sometimes</h3>
+    <button id="make-goldenRod">Make Golden-Rod</button>
+    <button onclick="makeOrange()">Make Orange</button>
+
+    <h4 id="handler-status">defaul text</h4>
+    <button id="event-listener">Handle event by add onclick function</button>
+
+    <p id="para">defaul text</p>
+    <input id="input-field" type="text" />
+    <button id="btn-update">update</button>
 
     <script src="./Js/events.js"></script>
-</body>
+    <script></script>
+  </body>
 </html>
