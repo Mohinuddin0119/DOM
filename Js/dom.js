@@ -61,6 +61,7 @@ console.log(dom1.classList)
 // document.getElementById('dom').setAttribute('style', 'background-color:blue;')
 // document.getElementById('dom').setAttribute('style', 'color:blue;')
 document.getElementById('dom').setAttribute('style', 'text-align:center;')
+
 // innerHtml
 const dom2 = document.getElementsByClassName('dom-container')
 console.log(dom2)
@@ -70,6 +71,13 @@ console.log(dom2[0].innerHTML)
 // console.log(dom2[0].innerHTML = '<h2> HI I AM MOHIN');
 // innerText
 console.log(dom2[0].innerText)
+// innerText (when display item none that's why one element hide)
+const ul = document.querySelector('ul')
+console.log(ul.innerText)
+
+// TextContent(show html all text)
+console.log(ul.textContent)
+
 // change
 // console.log(dom2[0].innerText = 'I am Mahi')
 
@@ -107,7 +115,7 @@ console.log(placesUL.parentNode.parentNode)
 console.log(placesUL.parentNode.parentNode.parentNode)
 console.log(placesUL.parentNode.parentNode.parentNode.parentNode)
 console.log(placesUL.parentNode.parentNode.parentNode.parentNode.parentNode)
-*/
+
 // where to add
 const mainContainer = document.getElementById('main-container')
 // what to be add
@@ -148,3 +156,10 @@ section1.innerHTML = `
 `
 section1.style.backgroundColor = 'red'
 mainContainer.appendChild(section1)
+
+// node list
+const fruits = document.querySelector('ul');
+console.log(fruits.childNodes);
+// collection
+console.log(fruits.children)
+*/
