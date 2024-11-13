@@ -193,4 +193,109 @@ for(const key of keys){
     const value = person[key]
     console.log(key,value)
 }
+
+// optional chining 
+const user = {
+    name : 'hero',
+    age:20,
+    address:{
+        thana:'jatrabari',
+        zilla:'Dhaka',
+        ward:[5,10],
+
+    }
+}
+const user2 = {
+    name : 'hero',
+    age:20,
+    address:{
+        thana:'jatrabari',
+        zilla:'Dhaka',
+        ward:[5,10],
+
+    }
+}
+console.log(user.address.ward[1].zilla?.thana)
+console.log(user.address?.thana)
+// map (function will be result than returns an array)
+const numbers = [10,20,30,50,40]
+const double = numbers.map(num => num * 2);
+console.log(double);
+const add = numbers.map(num => num + 5);
+console.log(add)
+const halves = numbers.map(num => num / 2);
+console.log(halves)
+const friends = ['mahi','abrar','Sayel','hasan','Shofiqul'];
+const lengths = friends.map(len => len.length)
+console.log(lengths)
+const firstLetter = friends.map(frn => frn[0].toUpperCase())
+console.log(firstLetter)
+
+// forEach(just returns result)
+// dont allow return an array
+const numbers = [1,5,6,10,15];
+numbers.forEach(num => console.log (num * 2))
+// filter(if condition true than will be  return)
+const players = [57,50,67,70,75]
+const selected = players.filter(p => p > 60)
+console.log(selected)
+const even = players.filter(p => p % 2 === 0)
+console.log(even)
+const friends = ['Mahi','Sayel','Abrar','Hasan','Sahara','sabbir']
+const len = friends.filter(frn =>{
+    if(frn.length % 2 === 0 && frn.length > 4){
+        return frn;
+    }})
+    
+console.log(len)
+
+// find (condition fulfill hole just one element show korbe)
+const numbers = [10,20,30,50,40]
+const even = numbers.find(p => p % 2 === 0)
+const odd = numbers.find(p => p % 2 === 1)
+console.log(even) //10
+console.log(odd)  //undefined
+// reduce (returns total value)
+const total = numbers.reduce((p,c) => p + c ,0 )
+console.log(total)
+
+// recap module
+// use array of Object
+const products = [
+  { id: 1, name: "lenovo", price: 65000 },
+  { id: 1, name: "dell", price: 45000 },
+  { id: 1, name: "Hp", price: 150000 },
+  { id: 1, name: "Mac", price: 30000 },
+];
+// map
+const names = products.map(product => product.name);
+console.log(names)
+// forEach
+products.forEach(p => console.log(p.price));
+// filter
+const prices = products.filter(p => p.price > 50000)
+console.log(prices)
+// find
+const affordable = products.find(p => p.price < 50000);
+console.log(affordable)
+// reduce
+const total = products.reduce((accum,current) => accum + current.price,0)
+console.log(total)
 */
+// ----Class--
+class Teacher{
+    constructor(name,subject,address){
+        this.name = name;
+        this.subject = subject;
+        this.address = address;
+    }
+    lecture(){
+        console.log('sir is teaching')
+    }
+}
+const kamrul = new Teacher('Kamrul',"English",'Dhaka')
+console.log(kamrul)
+kamrul.lecture();
+// 
+const leeza = new Teacher('Leeza','Math','Dhaka')
+console.log(leeza)
