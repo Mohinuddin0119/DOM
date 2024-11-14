@@ -281,7 +281,7 @@ console.log(affordable)
 // reduce
 const total = products.reduce((accum,current) => accum + current.price,0)
 console.log(total)
-*/
+
 // ----Class--
 class Teacher{
     constructor(name,subject,address){
@@ -299,3 +299,40 @@ kamrul.lecture();
 // 
 const leeza = new Teacher('Leeza','Math','Dhaka')
 console.log(leeza)
+// inheritance
+class Vehicle{
+    constructor(name,price){
+        this.name = name;
+        this.price = price;
+    }
+    move(){
+        console.log('car is running')
+    }
+}
+class Bus extends Vehicle{
+    constructor(name,price,seat,ticketPrice){
+        super(name,price);
+        this.seat = seat;
+        this.ticketPrice = ticketPrice;
+    }
+    stop(){
+        console.log('this bus is stop')
+    }
+}
+const bus = new Bus('hanif','2crore',40,500);
+console.log(bus)
+const car = new Vehicle('Asia aircon',20000000)
+console.log(car)
+
+// this keyword
+console.log(this);
+// inside an object use this keyword
+const person = {
+  name: "hero",
+  greet: function () {
+    console.log(this.name);
+  },
+};
+person.greet();
+*/
+// 31_9
