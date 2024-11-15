@@ -334,5 +334,207 @@ const person = {
   },
 };
 person.greet();
+
+// ______data type
+// --Javascript is dynamic typed language
+
+//primitive type(string,numbers,boolean,null,undefined)
+let x = 5;
+let y = "abul kabul babul";
+let z = true;
+y = x;
+console.log(x, y);
+y = 7;
+console.log(x, y); //not change orginal value
+// console.log(typeof x, typeof y, typeof z)
+
+//  non primitive(objects,array)
+let a = [10, 20, 30];
+let d = a;
+d.push(50);
+console.log(a,d);
+let b = { name: "hero", age: 21 };
+let c = b;
+c.surname = 'alom'
+console.log(b,c) //change orginal value
+
+// ____8 ways to get undefined--
+//__1 variable that is not initialized will give undefined
+let a;
+console.log(a)
+// __2 function  with no return
+function add(a,b){
+    const result = a +b
+    console.log(a ,b)
+}
+add()
+// __3 parameter that is not passed will be undefined
+function sub(a,b,c){
+    const sub = a - b - c
+}
+console.log(sub())
+// __4 if return has nothing on the right side will return undefined
+function multiply(a,b){
+    if(a < 0 || b < 0){
+        return
+    }
+    return a + b
+}
+console.log(multiply(2,-5))
+// __5 property that doesn't exists on an object will give you undefined
+const fifth = {name:'hero', age:20}
+console.log(fifth.selary)
+// __6 accessing array elements outside of the index range
+const sixth = [10,20,30,60,5]
+console.log(sixth[2], sixth[6])
+// __7 delete an element inside an array
+delete sixth[2]
+console.log(sixth[2])
+// __8 set a value directly to undefined
+const seventh = undefined
+console.log(seventh)
+
+// you need to null  
+const ninth = null
+console.log(ninth)
+
+// -----Truthy and falsy value
+
+// ----Truthy---
+// 1.true
+// 2.any number (+ve,-ve) will be truthy other than 0
+// 3.any string other than empty string
+// 4."0",'false
+// 5.[]
+// 6.{}
+
+// const x = true;
+// const x = -5
+// const x = 'string'
+// const x = 'false'
+// const x = '0'
+// const x = []
+const x = {}
+if(!!x){
+    console.log('Value is truthy')
+}
+else{
+    console.log('Value is falsy')
+}
+
+// ----Falsy value
+// 1.false
+// 2.0
+// 3.''(empty string)
+// 4.null
+// 5.undefined
+
+// const x = false;
+// const x = '';
+// const x = null;
+const x = undefined;
+if(!x){
+    console.log('Value is falsy')
+}
+else{
+    console.log('Value is truthy')
+}
+
+// double and triple equal 
+// dounle equal(==)
+const first = true
+const second = 1
+if(first === second){
+    console.log('value are equal')
+}
+else{
+    console.log('value are not equal')
+}
+// hoisting (first declare or call than declare or call)
+console.log(add(5,7))
+function add(a,b){
+    if(a>5){
+        const sum = a + b;
+        return sum;
+    }
+    else{
+        var sub = a - b;
+        return sub
+    }
+}
+
+// closure(one function inside another function call that's means closure)
+function stopWatch(){
+    let counter = 0;
+    return function(){
+        counter++;
+        return counter
+    }
+}
+const watch1 = stopWatch()
+console.log(watch1())
+console.log(watch1())
+console.log(watch1())
+const watch2 = stopWatch()
+console.log(watch2())
+console.log(watch2())
+console.log(watch2())
+
+// callback function(when function argument inside call another function)
+function greeting(greetingMoment, name){
+    greetingMoment(name)
+}
+// morning
+function greetingMorning(name){
+    console.log('Good Morning',name)
+}
+// evening
+function greetingEvening(name){
+    console.log('Good Evening',name)
+}
+// night
+function greetingNight(name){
+    console.log('Good Night',name);
+}
+// call
+greeting(greetingMorning , 'Mahi')
+greeting(greetingMorning , 'Abrar')
+greeting(greetingEvening , 'Rafiul')
+greeting(greetingNight , 'Sayel')
+
+// Arguments
+function sub(a, b,c) {
+    console.log(arguments)
+    console.log(arguments[1])
+    const arg = [...arguments];
+    arg.push(50)
+    console.log(arg)
+  const sub = a - b - c;
+  return sub;
+}
+console.log(sub(5,2,1,5,47))
+
+// pass by value (primitive)
+let num1 = 5;
+let num2 = 7;
+function modify(a,b){
+    console.log(a,b)   //5,7
+    a = 10;
+    b = 20;
+    console.log(a,b) //10,20
+}
+console.log(num1, num2)
+modify(num1,num2)
+console.log(num1, num2)
+
+// pass by reference(non primitive)
+const student1 = {name:'hero', age:25}
+const student2 = {name:'Parvez', age:20}
+function add(a,b){
+    a.salary = 20000
+    b.age = 30
+}
+console.log(student1,student2)
+add(student1,student2)
+console.log(student1,student2)
 */
-// 31_9
