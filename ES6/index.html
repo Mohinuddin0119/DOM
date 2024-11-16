@@ -1,12 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    <h1>hello</h1>
+    <!-- daisyui and tailwind -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.12.14/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        .post{
+            background-color: skyblue;
+            margin: 15px;
+            border-radius: 15px;
+            padding: 10px;
+        }
+        .create{
+            background-color: skyblue;
+            margin: 15px;
+            border-radius: 15px;
+            padding: 10px;
+        }
+    </style>
+  </head>
+  <body class="bg-white text-black min-h-screen">
+    <h1 class="font-bold text-2xl p-4 uppercase">hello</h1>
+    <!-- Get or Read -->
+    <button class="btn text-white" onclick="loadData()">Load Data</button>
+    <button class="btn text-white" id="loadData2">Load Data2</button>
+    <button class="btn text-white" id="users">Load Users</button>
+    <button class="btn text-white" id="users2">Load Users2</button>
+    <!-- Post or Create -->
+    <button class="btn bg-teal-400 border-none text-fuchsia-500" id="createPost">Create post</button>
+    <section>
+        <div id="create-container"></div>
+    </section>
+
+    <!-- user 2 -->
+    <div class="item-container p-8">
+      <ul id="item-list" class="item-list list-disc"></ul>
+    </div>
+
+    <h1 class="text-5xl font-bold text-center">Display all posts</h1>
+    <section>
+      <div class="flex justify-center p-5">
+        <button
+          class="btn border-none text-white w-1/3 text-2xl hover:bg-blue-600"
+          id="post"
+        >
+          Post
+        </button>
+      </div>
+      <div id="post-container"></div>
+    </section>
+
+    <!-- scripts -->
     <script src="./es6.js"></script>
-</body>
+    <script src="./internet.js"></script>
+  </body>
 </html>
