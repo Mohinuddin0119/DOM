@@ -109,32 +109,64 @@ const postId = document.getElementById('post')
 postId.addEventListener('click',post)
 */
 // Create or post
-function create(){
-    fetch('https://jsonplaceholder.typicode.com/posts', {
-        method: 'POST',
-        body: JSON.stringify({
-          title: 'Tiktoker',
-          body: 'I am hero alom. I want to be a leader of bangledesh',
-          userId: 1,
-        }),
-        headers: {
-          'Content-type': 'application/json; charset=UTF-8',
-        },
-      })
-        .then((response) => response.json())
-        .then((json) => createDisplay(json));
+function create() {
+  fetch("https://jsonplaceholder.typicode.com/posts", {
+    method: "POST",
+    body: JSON.stringify({
+      title: "Tiktoker",
+      body: "I am hero alom. I want to be a leader of bangledesh",
+      userId: 1,
+    }),
+    headers: {
+      "Content-type": "application/json; charset=UTF-8",
+    },
+  })
+    .then((response) => response.json())
+    .then((json) => createDisplay(json));
 }
-function createDisplay(data){
-    const createContainer = document.getElementById('create-container')
-    const div = document.createElement('div')
-    div.classList.add('create')
-    div.innerHTML = `
+function createDisplay(data) {
+  const createContainer = document.getElementById("create-container");
+  const div = document.createElement("div");
+  div.classList.add("create");
+  div.innerHTML = `
     <h3 class="font-bold">User -${data.userId}</h3>
     <h4 class="font-semibold">Title: ${data.title}</h4>
     <p>Post description: ${data.body}
-    `
-    createContainer.appendChild(div)
+    `;
+  createContainer.appendChild(div);
 }
 // call
-const createId = document.getElementById('createPost')
-createId.addEventListener('click',create)
+const createId = document.getElementById("createPost");
+createId.addEventListener("click", create);
+
+//Update (put)
+function updateAPost() {
+  fetch("https://jsonplaceholder.typicode.com/posts/1", {
+    method: "PUT",
+    body: JSON.stringify({
+      id: 1,
+      title: "foo",
+      body: "bar",
+      userId: 1,
+    }),
+    headers: {
+      "Content-type": "application/json; charset=UTF-8",
+    },
+  })
+    .then((response) => response.json())
+    .then((json) => console.log(json));
+}
+// update(patch)
+function patchingAPost(){
+    fetch("https://jsonplaceholder.typicode.com/posts/1", {
+        method: "PATCH",
+        body: JSON.stringify({
+          title: "foo",
+        }),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      })
+        .then((response) => response.json())
+        .then((json) => console.log(json));
+}
