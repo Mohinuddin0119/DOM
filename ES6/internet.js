@@ -1,4 +1,4 @@
-// ----JSON, Fetch(GET,),
+// ----JSON, Fetch(GET,POST,PUT,PATCH),async(await)
 /* 
 
 // -----JSON
@@ -107,7 +107,7 @@ function displayPost(posts){
 // call
 const postId = document.getElementById('post')
 postId.addEventListener('click',post)
-*/
+
 // Create or post
 function create() {
   fetch("https://jsonplaceholder.typicode.com/posts", {
@@ -169,4 +169,23 @@ function patchingAPost(){
       })
         .then((response) => response.json())
         .then((json) => console.log(json));
+}
+*/
+// simple fetch(catch)
+const loadComments = () =>{
+    fetch('https://jsonplaceholder.typicode.com/todos')
+    .then(res => res.json())
+    .then(data => console.log(data))
+    .catch(error => console.error('error happended',error))
+}
+// async(await)
+const loadComments2 = async() =>{
+    try{
+        const res = await fetch('https://jsonplaceholder.typicode.com/todos')
+        const data = await res.json()
+        console.log(data)
+    }
+    catch(error){
+        console.error('data error')
+    }
 }
