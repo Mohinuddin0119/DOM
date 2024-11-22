@@ -1,4 +1,4 @@
-// ----JSON, Fetch(GET,POST,PUT,PATCH),async(await)
+// ----JSON, Fetch(GET,POST,PUT,PATCH),async(await),single threaded(async,sync),setTimeOut,setInterval and clearInterval
 /* 
 
 // -----JSON
@@ -170,7 +170,7 @@ function patchingAPost(){
         .then((response) => response.json())
         .then((json) => console.log(json));
 }
-*/
+
 // simple fetch(catch)
 const loadComments = () =>{
     fetch('https://jsonplaceholder.typicode.com/todos')
@@ -189,3 +189,112 @@ const loadComments2 = async() =>{
         console.error('data error')
     }
 }
+
+// ----sigle threaded
+// synchronous (serial maintain)
+const one = () =>{
+  console.log('1')
+  two()
+  console.log('3')
+  four()
+}
+function two(){
+  console.log('2')
+}
+function four(){
+  console.log('4')
+}
+one()
+// asynchronous(serial does not maintain)
+console.log('I')
+setTimeout(() =>{
+  console.log('eat')
+},2000)
+console.log('Rice')
+// 
+console.log(1)
+setTimeout(() =>{
+  console.log(2)
+},3000)
+console.log(3)
+
+// promise
+const myLoader = () =>{
+  return new Promise((resolve,reject) =>{
+    const succes = Math.random()
+    if(succes < 0.5){
+      resolve(succes)
+    }
+    else{
+      reject(succes)
+    }
+  })
+}
+myLoader()
+.then(data => console.log('resolved data',data))
+.catch(err => console.log('reject with value',err))
+
+// setTimeOut()
+console.log(1)
+console.log(2)
+// setTimeout(() =>{
+//   console.log(3)
+// })
+// setTimeout(() =>{
+//   console.log('I am timeOut')
+// },2000)
+console.log(4)
+console.log(5)
+let num = 0
+const clockId = setInterval(() =>{
+  num++;
+  if(num  === 6){
+    clearInterval(clockId)
+  }
+  console.log(clockId,num)
+},2000)
+*/
+// event loop
+// stack (first in last out)
+function a(){
+  console.log('a');
+  b();
+  console.log('e')
+}
+function b(){
+  console.log('b')
+  console.log('bb')
+  c();
+}
+function c(){
+  console.log('c')
+  console.log('cc')
+  d();
+  f();
+}
+// asynchrouns
+function d(){
+  setTimeout(()=>{
+    console.log('d');
+  },2000)
+}
+function f(){
+  console.log('f')
+  console.log('ff')
+}
+function x(){
+  console.log('x');
+  y();
+}
+function y(){
+  console.log('y')
+  console.log('yy')
+  z()
+}
+function z(){
+  console.log('z')
+  console.log('zz')
+}
+// queue(first in first out)
+a();
+x();

@@ -158,7 +158,7 @@ for(const ins of instructor){
         console.log(ins.name);
     }
 }
-*/
+
 // problem 31_4
 const people = [
     {name: "Meena", age:20},
@@ -181,3 +181,42 @@ console.log(total)
 //     sum = sum + per.age
 // }
 // console.log(sum)
+
+//Task 35_1
+const timer = () =>{
+  const timerId = document.getElementById('setInterval')
+  timerId.innerText = 'Hello World'
+  timerId.classList = 'text-black font-bold text-xl text-center'
+}
+setInterval(timer,1000);
+
+// Task 35_2 (don't work this task)
+const showGreeting = (name) =>{
+  const delayTextId = document.getElementById('delayText') 
+  delayTextId.innerText = `Hello, ${name}!`
+}
+const delayGreeting = (name,delayTime) =>{
+  console.log(name)
+  console.log(delayTime)
+  setInterval(showGreeting,delayTime)
+}
+// delayGreeting('Mohin',2000);
+delayGreeting('Mohin',2000)
+*/
+// 
+function tellJoke() {
+  const tellJokeId = document.getElementById('telljokeId')
+  tellJokeId.innerText = (`Why don't scientists trust atoms? Because they make up
+  everything!`);
+ }
+
+ const jokeInterval = setInterval(tellJoke,2000);
+
+ // After 10 seconds, stop telling jokes
+
+ setTimeout(() => {
+
+  //write code
+  clearTimeout(jokeInterval)
+ },10000);
+//  
