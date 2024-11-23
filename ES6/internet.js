@@ -1,4 +1,4 @@
-// ----JSON, Fetch(GET,POST,PUT,PATCH),async(await),single threaded(async,sync),setTimeOut,setInterval and clearInterval
+// ----JSON, Fetch(GET,POST,PUT,PATCH),async(await),single threaded(async,sync),setTimeOut,setInterval and clearInterval,event loop,try,catch,finally,throw
 /* 
 
 // -----JSON
@@ -298,7 +298,7 @@ function z(){
 // queue(first in first out)
 a();
 x();
-*/
+
 // another example
 const third = () =>{
   console.log('third')
@@ -308,10 +308,41 @@ const second =() =>{
 }
 function one(){
   console.log('one');
+  // macro task queue
   setTimeout(second,1000)
-  new Promise((resolve) =>
+  // micro task queue
+  new Promise((resolve,reject) =>
     resolve('This is resolve'))
     .then(resolve => console.log(resolve))
+    .catch(reject => console.log('reject with value',reject))
   third()
 }
 one()
+
+// error handling
+function checkAge() {
+  const inputFieldId = document.getElementById("inputField");
+  const inputText = inputFieldId.value;
+  // 
+  const errorId = document.getElementById('error')
+  try {
+    const age = parseInt(inputText);
+    if(isNaN(age)){
+      throw 'please enter a number'
+    }
+    else if(age < 18){
+      throw 'Child is not allowed'
+    }
+    else if (age > 30) {
+      throw 'murubbi is not allowed'
+    }
+    errorId.innerText = 'Allowed'
+  } catch (err) {
+    console.error("error:", err);
+    errorId.innerHTML = err
+  }
+  finally{
+    console.log("All done")
+  }
+}
+*/

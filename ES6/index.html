@@ -63,6 +63,13 @@
         </button>
       </div>
       <div id="post-container"></div>
+      
+      <!-- Error handling -->
+       <div class="py-5 text-center">
+         <input id="inputField" class="bg-white border px-5 py-2 text-black w-1/2" type="text" placeholder="enter age">
+         <button onclick="checkAge()" class="btn btn-secondary" type="submit">Submit</button>
+         <p id="error" class="text-red-500"></p>
+       </div>
 
       <!-- set interval -->
        <div>
@@ -72,6 +79,7 @@
         <p id="delayText"></p>
         <!-- tell joke -->
          <p id="telljokeId"></p>
+
     </section>
 
     <!-- scripts -->

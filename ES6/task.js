@@ -183,40 +183,55 @@ console.log(total)
 // console.log(sum)
 
 //Task 35_1
+// display a message after 5s
 const timer = () =>{
   const timerId = document.getElementById('setInterval')
-  timerId.innerText = 'Hello World'
+  timerId.innerText = 'Hello Chandu'
   timerId.classList = 'text-black font-bold text-xl text-center'
 }
-setInterval(timer,1000);
-
-// Task 35_2 (don't work this task)
-const showGreeting = (name) =>{
-  const delayTextId = document.getElementById('delayText') 
-  delayTextId.innerText = `Hello, ${name}!`
-}
-const delayGreeting = (name,delayTime) =>{
-  console.log(name)
-  console.log(delayTime)
-  setInterval(showGreeting,delayTime)
-}
-// delayGreeting('Mohin',2000);
-delayGreeting('Mohin',2000)
+setInterval(timer,5000);
 */
-// 
-function tellJoke() {
-  const tellJokeId = document.getElementById('telljokeId')
-  tellJokeId.innerText = (`Why don't scientists trust atoms? Because they make up
-  everything!`);
- }
+// Task 35_2 (don't work this task)
+const showGreeting = (name) => {
+  const delayTextId = document.getElementById("delayText");
+  delayTextId.innerText = `Hello, ${name}!`;
+};
+const delayGreeting = (name, delayTime) => {
+  // console.log(name);
+  // console.log(delayTime);
+  setTimeout(() => showGreeting(name), delayTime);
+};
+// delayGreeting('Mohin',2000);
+delayGreeting("Mohin", 2000);
 
- const jokeInterval = setInterval(tellJoke,2000);
+//
+function tellJoke(name, count) {
+  const tellJokeId = document.getElementById("telljokeId");
+  setTimeout(() => {
+    tellJokeId.innerText = `My name is ${name} .I am a good boy! My roll number is ${count}`;
+  }, 0);
+}
 
- // After 10 seconds, stop telling jokes
+// After 10 seconds, stop telling jokes
+const showMessage = (name, delayTime) => {
+  let count = 0;
+  const timeOut = setInterval(() => {
+    if (count <= 5) {
+      tellJoke(name, count);
+      console.log(count);
+      count++;
+    } else {
+      clearInterval(timeOut);
+    }
+  }, delayTime);
+};
+showMessage("Mohin", 2000);
 
- setTimeout(() => {
-
-  //write code
-  clearTimeout(jokeInterval)
- },10000);
-//  
+// // Task 35_3
+// const loadData = async() =>{
+//   const res = await fetch('https://v2.jokeapi.dev/joke/Programming?typ=single')
+//   const data = await res.json()
+//   const joke = data.joke
+//   console.log(joke)
+// }
+// loadData()
