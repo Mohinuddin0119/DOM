@@ -253,7 +253,7 @@ const clockId = setInterval(() =>{
   }
   console.log(clockId,num)
 },2000)
-*/
+
 // event loop
 // stack (first in last out)
 function a(){
@@ -298,3 +298,20 @@ function z(){
 // queue(first in first out)
 a();
 x();
+*/
+// another example
+const third = () =>{
+  console.log('third')
+}
+const second =() =>{
+  console.log('second')
+}
+function one(){
+  console.log('one');
+  setTimeout(second,1000)
+  new Promise((resolve) =>
+    resolve('This is resolve'))
+    .then(resolve => console.log(resolve))
+  third()
+}
+one()
