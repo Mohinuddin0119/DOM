@@ -190,8 +190,8 @@ const timer = () =>{
   timerId.classList = 'text-black font-bold text-xl text-center'
 }
 setInterval(timer,5000);
-*/
-// Task 35_2 (don't work this task)
+
+// Task 35_2 ()
 const showGreeting = (name) => {
   const delayTextId = document.getElementById("delayText");
   delayTextId.innerText = `Hello, ${name}!`;
@@ -227,11 +227,12 @@ const showMessage = (name, delayTime) => {
 };
 showMessage("Mohin", 2000);
 
-// // Task 35_3
-// const loadData = async() =>{
-//   const res = await fetch('https://v2.jokeapi.dev/joke/Programming?typ=single')
-//   const data = await res.json()
-//   const joke = data.joke
-//   console.log(joke)
-// }
-// loadData()
+// Task 35_3
+const loadData = async() =>{
+  const res = await fetch('https://v2.jokeapi.dev/joke/Programming?typ=single')
+  const data = await res.json()
+  const joke = data.joke
+  console.log(joke)
+}
+loadData()
+*/
